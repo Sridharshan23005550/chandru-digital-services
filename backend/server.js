@@ -9,6 +9,10 @@ const authRoutes = require("./routes/auth");
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.send("Backend is running on Render");
+});
+
 
 mongoose.connect(process.env.MONGO_URI, {
   serverSelectionTimeoutMS: 5000
