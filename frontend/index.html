@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chandru Photography & Digital Services</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<a
+  href="https://wa.me/916383814837?text=Hi,%20I%20need%20your%20service"
+  target="_blank"
+  style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+  "
+>
+  💬
+</a>
+<body>
+
+<header>
+  <h2>CHANDRU PHOTOGRAPHY & DIGITAL SERVICES</h2>
+  <div>
+    <input type="text" placeholder="Search services">
+    <button onclick="openLogin()">Login</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Your Photo Studio & Net Center</h1>
+  <div class="cards">
+    <div>Portraits & Events</div>
+    <div>Landscape & Travel</div>
+    <div>Digital Services</div>
+  </div>
+</section>
+
+<section>
+  <h2>Online E-Services</h2>
+  <div class="cards">
+    <div>Aadhar / PAN</div>
+    <div>Web Services</div>
+    <div>Ticket Booking</div>
+    <div>Digital Support</div>
+  </div>
+</section>
+
+<section>
+  <h2>Contact Us</h2>
+  <input id="name" placeholder="Name">
+  <input id="email" placeholder="Email">
+  <textarea id="message" placeholder="Message"></textarea>
+  <button>Send</button>
+</section>
+
+<!-- LOGIN POPUP -->
+<div id="loginBox" class="login">
+  <input id="username" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <button onclick="closeLogin()">Close</button>
+</div>
+<button onclick="openLogin()">Login</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>
