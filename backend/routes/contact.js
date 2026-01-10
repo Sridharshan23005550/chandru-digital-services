@@ -7,7 +7,7 @@ const { verifyAdmin } = require("../middleware/auth");
    SUBMIT CONTACT MESSAGE (Public)
 ====================== */
 router.post("/", async (req, res) => {
-  const { name, email, phone, message } = req.body;
+  const { name, email, phone, message, service } = req.body;
 
   if (!name || !email || !message) {
     return res.status(400).json({ msg: "Please fill all required fields" });
@@ -18,7 +18,8 @@ router.post("/", async (req, res) => {
       name,
       email,
       phone: phone || "",
-      message
+      message,
+      service: service || "General Inquiry"
     });
     res.json({ msg: "Message sent successfully" });
   } catch (err) {

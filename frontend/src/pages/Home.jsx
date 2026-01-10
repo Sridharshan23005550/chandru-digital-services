@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import ServiceCard from '../components/ServiceCard';
 import { Camera, Map, Printer, Ticket, Globe, Monitor } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const services = [
@@ -61,7 +62,12 @@ const Home = () => {
 
                     <div className="grid md:grid-cols-3 gap-8">
                         {services.map((service, index) => (
-                            <ServiceCard key={index} {...service} delay={index * 0.1} />
+                            <ServiceCard
+                                key={index}
+                                {...service}
+                                delay={index * 0.1}
+                                link={`/contact?service=${encodeURIComponent(service.title)}`}
+                            />
                         ))}
                     </div>
                 </div>
@@ -82,18 +88,22 @@ const Home = () => {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                         {onlineServices.map((item, index) => (
-                            <motion.div
+                            <Link
+                                to={`/contact?service=${encodeURIComponent(item.title)}`}
                                 key={index}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="bg-white/5 border border-white/5 rounded-2xl p-8 text-center hover:bg-white/10 hover:border-primary/30 transition-all group"
                             >
-                                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform">{item.icon}</div>
-                                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                                <p className="text-white/50 text-sm">{item.desc}</p>
-                            </motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="bg-white/5 border border-white/5 rounded-2xl p-8 text-center hover:bg-white/10 hover:border-primary/30 transition-all group h-full"
+                                >
+                                    <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform">{item.icon}</div>
+                                    <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                                    <p className="text-white/50 text-sm">{item.desc}</p>
+                                </motion.div>
+                            </Link>
                         ))}
                     </div>
                 </div>

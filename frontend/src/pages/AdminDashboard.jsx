@@ -82,8 +82,8 @@ const AdminDashboard = () => {
                     <button
                         onClick={() => setActiveTab('messages')}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${activeTab === 'messages'
-                                ? 'bg-primary/10 text-primary font-semibold'
-                                : 'text-white/60 hover:bg-white/5 hover:text-white'
+                            ? 'bg-primary/10 text-primary font-semibold'
+                            : 'text-white/60 hover:bg-white/5 hover:text-white'
                             }`}
                     >
                         <MessageSquare size={20} /> Messages
@@ -205,9 +205,16 @@ const AdminDashboard = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <span className="text-white/30 text-xs bg-white/5 px-2 py-1 rounded-md">
-                                            {formatDate(msg.createdAt)}
-                                        </span>
+                                        <div className="flex flex-col items-end gap-2">
+                                            <span className="text-white/30 text-xs bg-white/5 px-2 py-1 rounded-md">
+                                                {formatDate(msg.createdAt)}
+                                            </span>
+                                            {msg.service && (
+                                                <span className="text-xs font-semibold bg-primary/20 text-primary px-2 py-1 rounded-md border border-primary/20">
+                                                    Subject: {msg.service}
+                                                </span>
+                                            )}
+                                        </div>
                                     </div>
 
                                     <div className="bg-dark-900/50 p-4 rounded-xl border border-white/5 mb-4">

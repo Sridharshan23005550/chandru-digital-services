@@ -28,7 +28,7 @@ const Navbar = () => {
     };
 
     const navLinks = [
-        { name: 'Services', path: '/#services' },
+        { name: 'Services', path: '/services' },
         { name: 'Gallery', path: '/#gallery' },
         { name: 'Contact', path: '/contact' },
     ];
@@ -53,15 +53,15 @@ const Navbar = () => {
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
-                        <a
+                        <Link
                             key={link.name}
-                            href={link.path}
+                            to={link.path}
                             className="text-white/80 hover:text-white font-medium transition-colors text-sm relative group"
                         >
                             {link.name}
                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
                                 style={{ background: 'var(--gradient-primary)' }} />
-                        </a>
+                        </Link>
                     ))}
                 </div>
 
@@ -69,7 +69,9 @@ const Navbar = () => {
                 <div className="hidden md:flex items-center gap-4">
                     {user ? (
                         <div className="flex items-center gap-4">
-                            <span className="text-white/90 text-sm">Hi, {user.name}</span>
+                            <Link to="/profile" className="flex items-center gap-2 text-white/90 hover:text-primary transition-colors text-sm font-medium">
+                                <User size={18} /> Hi, {user.name}
+                            </Link>
                             <button
                                 onClick={handleLogout}
                                 className="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/30 text-primary hover:bg-primary hover:text-white transition-all text-sm font-semibold"
@@ -124,20 +126,22 @@ const Navbar = () => {
                     >
                         <div className="flex flex-col p-6 gap-4">
                             {navLinks.map((link) => (
-                                <a
+                                <Link
                                     key={link.name}
-                                    href={link.path}
+                                    to={link.path}
                                     className="text-white/80 py-2 border-b border-white/5"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}
-                                </a>
+                                </Link>
                             ))}
 
                             <div className="mt-4 flex flex-col gap-3">
                                 {user ? (
                                     <>
-                                        <div className="text-white/60 text-sm">Signed in as {user.name}</div>
+                                        <Link to="/profile" className="text-white/60 text-sm flex items-center gap-2" onClick={() => setIsOpen(false)}>
+                                            <User size={16} /> Signed in as {user.name}
+                                        </Link>
                                         <button onClick={handleLogout} className="text-primary font-semibold text-left">Logout</button>
                                     </>
                                 ) : (

@@ -1,19 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Send, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { Send, MapPin, Phone, Mail, Clock, Briefcase } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import api from '../utils/api';
 import { toast } from 'react-hot-toast';
+import { useSearchParams } from 'react-router-dom';
 
 const Contact = () => {
+    const [searchParams] = useSearchParams();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
-        message: ''
+        message: '',
+        service: ''
     });
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        const serviceParam = searchParams.get('service');
+        if (serviceParam) {
+            setFormData(prev => ({ ...prev, service: serviceParam }));
+        }
+    }, [searchParams]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,7 +31,7 @@ const Contact = () => {
         try {
             await api.post('/contact', formData);
             toast.success('Message sent successfully!');
-            setFormData({ name: '', email: '', phone: '', message: '' });
+            setFormData({ name: '', email: '', phone: '', message: '', service: '' });
         } catch (error) {
             toast.error('Failed to send message. Please try again.');
         } finally {
@@ -95,13 +105,26 @@ const Contact = () => {
                                 </div>
 
                                 <div>
+                                    <label className="block text-white/50 text-sm font-semibold mb-2">Service of Interest</label>
+                                    <div className="relative">
+                                        <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 w-5 h-5" />
+                                        <input
+                                            type="text"
+                                            value={formData.service}
+                                            onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                                            className="w-full bg-dark-900 border border-white/10 rounded-xl py-3.5 pl-12 pr-4 text-white focus:border-primary focus:outline-none transition-colors"
+                                            placeholder="General Inquiry, Portraits, Aadhaar, etc."
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
                                     <label className="block text-white/50 text-sm font-semibold mb-2">Message</label>
                                     <textarea
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                         className="w-full bg-dark-900 border border-white/10 rounded-xl py-3.5 px-4 text-white focus:border-primary focus:outline-none transition-colors h-40 resize-none"
                                         placeholder="How can we help you?"
-                                        required
                                     />
                                 </div>
 
