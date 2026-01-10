@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand Colors */
+  --primary: #e94560;
+  --primary-dark: #c73e54;
+  --secondary: #ff6b35;
+  --accent: #f7c59f;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #e94560, #ff6b35);
+}
+
+body {
+  @apply bg-dark-900 text-white font-sans overflow-x-hidden;
+}
+
+/* Custom Utilities */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #16213e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e94560;
+}

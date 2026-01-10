@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Chandru Photography & Digital Services – Professional Portraits, Events, Aadhaar, PAN, Online Services & Premium Printing." />
+  <meta name="keywords" content="Photography, Photo Studio, Aadhaar PAN, Digital Services, Net Center, Printing" />
+  <title>Chandru Photography & Digital Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/916383814837?text=Hi,%20I%20need%20your%20service" target="_blank" class="whatsapp-float">
+    <span>💬</span>
+  </a>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">📷</span>
+        <div>
+          <h1>Chandru Digital</h1>
+          <p>Photography & Net Center</p>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-auth" id="navAuth">
+        <a href="login.html" class="auth-btn login-btn">Login</a>
+        <a href="admin-login.html" class="auth-btn admin-btn">Admin</a>
+      </div>
+
+      <div class="nav-user" id="navUser" style="display: none;">
+        <span class="user-greeting" id="userGreeting"></span>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Professional <span class="gradient-text">Photography</span> &
+        <br />Digital Services
+      </h1>
+      <p class="hero-subtitle">
+        Capturing moments, creating memories. Your one-stop destination for photography, printing, and online services.
+      </p>
+      <div class="hero-buttons">
+        <a href="#services" class="hero-btn primary">Explore Services</a>
+        <a href="#contact" class="hero-btn secondary">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll Down</span>
+      <div class="scroll-indicator"></div>
+    </div>
+  </section>
+
+  <!-- Main Services Section -->
+  <section class="services-section" id="services">
+    <div class="section-header">
+      <span class="section-tag">What We Offer</span>
+      <h2>Our Premium Services</h2>
+      <p>Professional photography and digital services tailored for you</p>
+    </div>
+
+    <div class="services-grid">
+      <a href="services/services-portraits.html" class="service-card">
+        <div class="service-image">
+          <img src="images/portrait.jpg" alt="Portrait Photography" />
+          <div class="service-overlay"></div>
+        </div>
+        <div class="service-content">
+          <div class="service-icon">📸</div>
+          <h3>Portraits & Events</h3>
+          <p>Professional photography for all occasions</p>
+        </div>
+      </a>
+
+      <a href="services/services-travel.html" class="service-card">
+        <div class="service-image">
+          <img src="images/travel.jpg" alt="Travel Photography" />
+          <div class="service-overlay"></div>
+        </div>
+        <div class="service-content">
+          <div class="service-icon">🌄</div>
+          <h3>Landscape & Travel</h3>
+          <p>Stunning nature and travel photography</p>
+        </div>
+      </a>
+
+      <a href="services/services-digital.html" class="service-card">
+        <div class="service-image">
+          <img src="images/digital.jpg" alt="Digital Services" />
+          <div class="service-overlay"></div>
+        </div>
+        <div class="service-content">
+          <div class="service-icon">🖨️</div>
+          <h3>Digital Services</h3>
+          <p>Printing, scanning & document services</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- E-Services Section -->
+  <section class="e-services-section">
+    <div class="section-header light">
+      <span class="section-tag">Government & Online</span>
+      <h2>Online E-Services</h2>
+      <p>Quick and reliable online service assistance</p>
+    </div>
+
+    <div class="e-services-grid">
+      <a href="services/services-aadhar.html" class="e-service-card">
+        <div class="e-service-icon">🪪</div>
+        <h3>Aadhaar / PAN</h3>
+        <p>Registration & updates</p>
+      </a>
+
+      <a href="services/services-web.html" class="e-service-card">
+        <div class="e-service-icon">🌐</div>
+        <h3>Web Services</h3>
+        <p>Online applications & forms</p>
+      </a>
+
+      <a href="services/services-ticket.html" class="e-service-card">
+        <div class="e-service-icon">🎫</div>
+        <h3>Ticket Booking</h3>
+        <p>Train, bus & flight tickets</p>
+      </a>
+
+      <a href="services/services-support.html" class="e-service-card">
+        <div class="e-service-icon">💻</div>
+        <h3>Digital Support</h3>
+        <p>Technical assistance</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header">
+      <span class="section-tag">Our Work</span>
+      <h2>Photo Gallery</h2>
+      <p>Browse through our recent photography work</p>
+    </div>
+
+    <div class="gallery-cta">
+      <button class="gallery-btn" onclick="openGalleryProtected()">
+        <span>📸</span> View Live Gallery
+      </button>
+      <p class="gallery-note">Real-time studio & event photos</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/gallery1.jpg" class="lightbox-img" alt="Studio work" />
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery2.jpg" class="lightbox-img" alt="Camera" />
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery3.jpg" class="lightbox-img" alt="Portrait" />
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery4.jpg" class="lightbox-img" alt="Events" />
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery5.jpg" class="lightbox-img" alt="Printing" />
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery6.jpg" class="lightbox-img" alt="Net Center" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <span class="section-tag">Get in Touch</span>
+        <h2>Contact Us</h2>
+        <p>Have questions? Send us a message and we'll get back to you shortly.</p>
+
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <h4>Location</h4>
+              <p>Chandru Photography & Net Center</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div>
+              <h4>Phone</h4>
+              <p>+91 6383814837</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">⏰</span>
+            <div>
+              <h4>Hours</h4>
+              <p>Mon - Sat: 9AM - 8PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-container">
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" placeholder="Your Phone (optional)" />
+          </div>
+          <div class="form-group">
+            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <span>Send Message</span>
+            <span class="btn-icon">→</span>
+          </button>
+          <p id="contactResult" class="form-result"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="logo-icon">📷</span>
+        <h3>Chandru Digital</h3>
+        <p>Photography & Net Center</p>
+      </div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a href="login.html">Login</a>
+      </div>
+      <p class="footer-copy">© 2026 Chandru Photography & Net Center | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <img id="lightbox-img" alt="Gallery Image" />
+  </div>
+
+  <!-- Gallery Modal -->
+  <div id="galleryModal" class="gallery-modal">
+    <span class="gallery-close" onclick="closeGallery()">×</span>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/gallery.js"></script>
+  <script>
+    // Gallery protection
+    function openGalleryProtected() {
+      const token = localStorage.getItem("token");
+      if (token) {
+        openGallery();
+      } else {
+        alert("🔒 Please login to view live gallery.");
+        window.location.href = "login.html";
+      }
+    }
+
+    // Auth state management
+    document.addEventListener('DOMContentLoaded', function () {
+      const token = localStorage.getItem('token');
+      const user = JSON.parse(localStorage.getItem('user') || 'null');
+
+      if (token && user) {
+        document.getElementById('navAuth').style.display = 'none';
+        document.getElementById('navUser').style.display = 'flex';
+        document.getElementById('userGreeting').textContent = 'Hi, ' + user.name;
+      }
+
+      document.getElementById('logoutBtn')?.addEventListener('click', function () {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.reload();
+      });
+    });
+
+    // Contact form
+    document.getElementById('contactForm')?.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const result = document.getElementById('contactResult');
+      const btn = this.querySelector('button');
+
+      btn.disabled = true;
+      btn.innerHTML = '<span>Sending...</span>';
+
+      try {
+        const res = await fetch('https://chandru-digital-services.onrender.com/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, message })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) throw new Error(data.msg);
+
+        result.className = 'form-result success';
+        result.textContent = '✅ Message sent successfully! We will contact you soon.';
+        this.reset();
+
+      } catch (err) {
+        result.className = 'form-result error';
+        result.textContent = '❌ ' + (err.message || 'Failed to send message');
+      }
+
+      btn.disabled = false;
+      btn.innerHTML = '<span>Send Message</span><span class="btn-icon">→</span>';
+    });
+  </script>
+
+</body>
+
+</html>
