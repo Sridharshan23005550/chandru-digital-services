@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Activity</title>
+</head>
+<body>
+  <h2>Your Service History</h2>
+  <ul id="historyList"></ul>
+
+<script>
+const user = JSON.parse(localStorage.getItem("user"));
+if (!user) {
+  window.location.href = "user-login.html";
+}
+
+fetch("https://chandru-digital-services.onrender.com/api/user/" + user._id)
+  .then(res => res.json())
+  .then(data => {
+    const list = document.getElementById("historyList");
+    data.history.forEach(item => {
+      const li = document.createElement("li");
+      li.innerText = item;
+      list.appendChild(li);
+    });
+  });
+</script>
+</body>
+</html>

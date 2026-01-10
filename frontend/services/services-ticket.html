@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ticket Booking</title>
+  <link rel="stylesheet" href="../css/service.css">
+</head>
+
+<body>
+<!-- Navbar -->
+<div id="navbar"></div>
+
+<script>
+fetch("../partials/navbar.html")
+  .then(res => res.text())
+  .then(data => document.getElementById("navbar").innerHTML = data);
+</script>
+
+<section class="hero">
+  <h1>Ticket Booking</h1>
+  <p>Easy • Fast • Hassle-Free</p>
+</section>
+
+<div class="container">
+
+  <h2>Ticket Booking Services</h2>
+
+<div class="service-grid">
+  <div class="service-box fade-in">
+      <a href="../contact.html" class="service-link">
+
+    <img src="../images/ticket/bus.png"
+     alt="Bus ticket booking service"
+     loading="lazy">
+    <h3>Bus Tickets</h3>
+    <p>All routes & operators</p>
+    </a>
+  </div>
+
+  <div class="service-box fade-in">
+      <a href="../contact.html" class="service-link">
+
+  <img src="../images/ticket/train.png"
+     alt="Train ticket booking assistance"
+     loading="lazy">    <h3>Train Tickets</h3>
+    <p>IRCTC booking assistance</p>
+    </a>
+  </div>
+
+  <div class="service-box fade-in">
+      <a href="../contact.html" class="service-link">
+
+    <img src="../images/ticket/flight.png"
+     alt="Flight ticket booking service"
+     loading="lazy">
+    <h3>Flight Tickets</h3>
+    <p>Domestic & international</p>
+    </a>
+  </div>
+
+  <div class="service-box fade-in">
+      <a href="../contact.html" class="service-link">
+
+    <img src="../images/ticket/cancel.png"
+     alt="Ticket cancellation and reschedule support"
+     loading="lazy">
+    <h3>Cancellation Support</h3>
+    <p>Refund & reschedule help</p>
+    </a>
+  </div>
+</div>
+
+
+  <h3 style="margin-top:30px">Why Choose Us?</h3>
+  <ul>
+    <li>Fast booking process</li>
+    <li>Reliable assistance</li>
+    <li>Multiple travel options</li>
+    <li>Support after booking</li>
+  </ul>
+
+  <div class="actions">
+    <a href="../contact.html">Send Enquiry</a>
+    <a href="tel:+916383814837" class="secondary">Call Now</a>
+    <a href="https://wa.me/916383814837" class="secondary">WhatsApp</a>
+  </div>
+
+</div>
+
+<footer>
+© 2026 Chandru Photography & Net Center | All Rights Reserved
+</footer>
+
+</body>
+</html>

@@ -1,59 +1,658 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Admin Panel</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Chandru Digital Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial;
-      padding: 20px;
+      font-family: 'Inter', sans-serif;
+      background: #0f0f1a;
+      color: #fff;
+      min-height: 100vh;
     }
-    h2 {
-      color: #0f766e;
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 260px;
+      height: 100vh;
+      background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+      padding: 30px 20px;
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      z-index: 100;
     }
-    .card {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 6px;
+
+    .sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 30px;
+    }
+
+    .sidebar-logo .icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #e94560, #ff6b35);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .sidebar-logo h2 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .sidebar-logo span {
+      display: block;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 2px;
+    }
+
+    .nav-menu {
+      list-style: none;
+    }
+
+    .nav-menu li {
+      margin-bottom: 8px;
+    }
+
+    .nav-menu a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      background: rgba(233, 69, 96, 0.15);
+      color: #e94560;
+    }
+
+    .nav-menu a .badge {
+      margin-left: auto;
+      background: #e94560;
+      color: #fff;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .logout-btn {
+      position: absolute;
+      bottom: 30px;
+      left: 20px;
+      right: 20px;
+      padding: 14px;
+      background: rgba(233, 69, 96, 0.1);
+      border: 1px solid rgba(233, 69, 96, 0.3);
+      border-radius: 12px;
+      color: #e94560;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .logout-btn:hover {
+      background: #e94560;
+      color: #fff;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 260px;
+      padding: 30px 40px;
+      min-height: 100vh;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .header-date {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 28px;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .stat-card .icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    .stat-card.messages .icon {
+      background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(233, 69, 96, 0.1));
+    }
+
+    .stat-card.users .icon {
+      background: linear-gradient(135deg, rgba(46, 213, 115, 0.2), rgba(46, 213, 115, 0.1));
+    }
+
+    .stat-card.services .icon {
+      background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.1));
+    }
+
+    .stat-card h3 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .stat-card p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+    }
+
+    /* Messages Section */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .section-header h2 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .refresh-btn {
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .refresh-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .messages-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .message-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .message-card:hover {
+      border-color: rgba(233, 69, 96, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .message-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .message-sender {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .message-avatar {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #e94560, #ff6b35);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .message-sender h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .message-sender span {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .message-time {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .message-body {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .message-body p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .message-footer {
+      display: flex;
+      gap: 10px;
+    }
+
+    .message-footer a {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .message-footer .reply-btn {
+      background: rgba(46, 213, 115, 0.15);
+      color: #2ed573;
+    }
+
+    .message-footer .reply-btn:hover {
+      background: #2ed573;
+      color: #fff;
+    }
+
+    .message-footer .delete-btn {
+      background: rgba(233, 69, 96, 0.15);
+      color: #e94560;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .message-footer .delete-btn:hover {
+      background: #e94560;
+      color: #fff;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .empty-state .icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 60px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .loading::after {
+      content: '...';
+      animation: dots 1.5s infinite;
+    }
+
+    @keyframes dots {
+
+      0%,
+      20% {
+        content: '.';
+      }
+
+      40% {
+        content: '..';
+      }
+
+      60%,
+      100% {
+        content: '...';
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .sidebar {
+        width: 80px;
+        padding: 20px 10px;
+      }
+
+      .sidebar-logo h2,
+      .sidebar-logo span,
+      .nav-menu a span,
+      .nav-menu a .badge {
+        display: none;
+      }
+
+      .nav-menu a {
+        justify-content: center;
+        padding: 14px;
+      }
+
+      .logout-btn span {
+        display: none;
+      }
+
+      .main-content {
+        margin-left: 80px;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sidebar {
+        display: none;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <h2>Customer Messages</h2>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="icon">🛡️</div>
+      <div>
+        <h2>Admin Panel</h2>
+        <span>Chandru Digital</span>
+      </div>
+    </div>
 
-  <div id="messages">Loading...</div>
+    <ul class="nav-menu">
+      <li>
+        <a href="#" class="active">
+          <span class="nav-icon">📊</span>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="nav-icon">📬</span>
+          <span>Messages</span>
+          <span class="badge" id="msgBadge">0</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="nav-icon">👥</span>
+          <span>Users</span>
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          <span class="nav-icon">🏠</span>
+          <span>View Site</span>
+        </a>
+      </li>
+    </ul>
+
+    <button class="logout-btn" onclick="logout()">
+      🚪 <span>Logout</span>
+    </button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="header">
+      <div>
+        <h1>Welcome, Admin</h1>
+        <p class="header-date" id="currentDate"></p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card messages">
+        <div class="icon">📬</div>
+        <h3 id="totalMessages">0</h3>
+        <p>Total Messages</p>
+      </div>
+      <div class="stat-card users">
+        <div class="icon">👥</div>
+        <h3 id="totalUsers">-</h3>
+        <p>Registered Users</p>
+      </div>
+      <div class="stat-card services">
+        <div class="icon">📷</div>
+        <h3>7</h3>
+        <p>Active Services</p>
+      </div>
+    </div>
+
+    <!-- Messages Section -->
+    <div class="section-header">
+      <h2>📬 Customer Messages</h2>
+      <button class="refresh-btn" onclick="loadMessages()">🔄 Refresh</button>
+    </div>
+
+    <div class="messages-grid" id="messagesContainer">
+      <div class="loading">Loading messages</div>
+    </div>
+  </main>
 
   <script>
-    fetch("http://localhost:5000/api/contact")
-      .then(res => res.json())
-      .then(data => {
-        const box = document.getElementById("messages");
-        box.innerHTML = "";
+    const API_BASE = "https://chandru-digital-services.onrender.com";
 
-        if (data.length === 0) {
-          box.innerHTML = "<p>No messages yet</p>";
+    // Check authentication
+    const adminToken = localStorage.getItem('adminToken');
+    if (!adminToken) {
+      window.location.href = 'admin-login.html';
+    }
+
+    // Set current date
+    document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    // Load messages
+    async function loadMessages() {
+      const container = document.getElementById('messagesContainer');
+      container.innerHTML = '<div class="loading">Loading messages</div>';
+
+      try {
+        const res = await fetch(`${API_BASE}/api/contact`, {
+          headers: {
+            'Authorization': `Bearer ${adminToken}`
+          }
+        });
+
+        if (res.status === 401 || res.status === 403) {
+          localStorage.removeItem('adminToken');
+          localStorage.removeItem('admin');
+          window.location.href = 'admin-login.html';
           return;
         }
 
-        data.forEach(msg => {
-          const div = document.createElement("div");
-          div.className = "card";
-          div.innerHTML = `
-            <strong>Name:</strong> ${msg.name}<br>
-            <strong>Email:</strong> ${msg.email}<br>
-            <strong>Phone:</strong> ${msg.phone}<br>
-            <strong>Message:</strong> ${msg.message}
-          `;
-          box.appendChild(div);
+        const messages = await res.json();
+
+        // Update stats
+        document.getElementById('totalMessages').textContent = messages.length;
+        document.getElementById('msgBadge').textContent = messages.length;
+
+        if (messages.length === 0) {
+          container.innerHTML = `
+        <div class="empty-state">
+          <div class="icon">📭</div>
+          <h3>No Messages Yet</h3>
+          <p>Customer inquiries will appear here</p>
+        </div>
+      `;
+          return;
+        }
+
+        container.innerHTML = messages.map(msg => `
+      <div class="message-card" data-id="${msg._id}">
+        <div class="message-header">
+          <div class="message-sender">
+            <div class="message-avatar">${msg.name.charAt(0).toUpperCase()}</div>
+            <div>
+              <h4>${escapeHtml(msg.name)}</h4>
+              <span>${escapeHtml(msg.email)} ${msg.phone ? '• ' + escapeHtml(msg.phone) : ''}</span>
+            </div>
+          </div>
+          <span class="message-time">${formatDate(msg.createdAt)}</span>
+        </div>
+        <div class="message-body">
+          <p>${escapeHtml(msg.message)}</p>
+        </div>
+        <div class="message-footer">
+          <a href="mailto:${msg.email}" class="reply-btn">✉️ Reply</a>
+          <button class="delete-btn" onclick="deleteMessage('${msg._id}')">🗑️ Delete</button>
+        </div>
+      </div>
+    `).join('');
+
+      } catch (err) {
+        console.error('Load error:', err);
+        container.innerHTML = `
+      <div class="empty-state">
+        <div class="icon">⚠️</div>
+        <h3>Connection Error</h3>
+        <p>Could not connect to server. Please try again.</p>
+      </div>
+    `;
+      }
+    }
+
+    // Delete message
+    async function deleteMessage(id) {
+      if (!confirm('Are you sure you want to delete this message?')) return;
+
+      try {
+        const res = await fetch(`${API_BASE}/api/contact/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${adminToken}`
+          }
         });
-      })
-      .catch(() => {
-        document.getElementById("messages").innerHTML =
-          "<p>Server not reachable</p>";
-      });
+
+        if (res.ok) {
+          // Remove card with animation
+          const card = document.querySelector(`[data-id="${id}"]`);
+          if (card) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateX(20px)';
+            setTimeout(() => {
+              card.remove();
+              const count = document.querySelectorAll('.message-card').length;
+              document.getElementById('totalMessages').textContent = count;
+              document.getElementById('msgBadge').textContent = count;
+            }, 300);
+          }
+        }
+      } catch (err) {
+        console.error('Delete error:', err);
+        alert('Failed to delete message');
+      }
+    }
+
+    // Logout
+    function logout() {
+      localStorage.removeItem('adminToken');
+      localStorage.removeItem('admin');
+      window.location.href = 'admin-login.html';
+    }
+
+    // Helper functions
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      const now = new Date();
+      const diff = now - date;
+
+      if (diff < 60000) return 'Just now';
+      if (diff < 3600000) return Math.floor(diff / 60000) + 'm ago';
+      if (diff < 86400000) return Math.floor(diff / 3600000) + 'h ago';
+      if (diff < 604800000) return Math.floor(diff / 86400000) + 'd ago';
+
+      return date.toLocaleDateString();
+    }
+
+    // Load on page load
+    loadMessages();
   </script>
 
 </body>
+
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Landscape & Travel Photography</title>
+  <link rel="stylesheet" href="../css/service.css">
+</head>
+
+<body>
+<!-- Navbar -->
+<div id="navbar"></div>
+
+<script>
+fetch("../partials/navbar.html")
+  .then(res => res.text())
+  .then(data => document.getElementById("navbar").innerHTML = data);
+</script>
+
+<section class="hero">
+  <h1>Landscape & Travel Photography</h1>
+  <p>Nature • Adventure • Memories</p>
+</section>
+
+<div class="container">
+
+  <h2>Our Travel Photography</h2>
+
+<div class="service-grid">
+  <div class="service-box fade-in">
+      <a href="../contact.html" class="service-link">
+    <img src="../images/travel/nature.png"
+     alt="Nature landscape photography"
+     loading="lazy">
+    <h3>Nature Photography</h3>
+    <p>Mountains, rivers & landscapes</p>
+    </a>
+  </div>
+
+  <div class="service-box fade-in">
+      <a href="../contact.html" class="service-link">
+    <img src="../images/travel/travel.png"
+     alt="Travel photography service"
+     loading="lazy">
+    <h3>Travel Shoots</h3>
+    <p>Outdoor & destination shoots</p>
+    </a>
+  </div>
+
+  <div class="service-box fade-in">
+    <a href="../contact.html" class="service-link"></a>
+    <img src="../images/travel/drone.png"
+     alt="Wide angle and scenic photography"
+     loading="lazy">
+    <h3>Wide Angle Shots</h3>
+    <p>High resolution scenic photos</p>
+    </a>
+  </div>
+
+  <div class="service-box fade-in">
+      <a href="../contact.html" class="service-link">
+    <img src="../images/travel/edit.png"
+     alt="Photo enhancement and color correction"
+     loading="lazy">
+    <h3>Photo Enhancement</h3>
+    <p>Color & clarity enhancement</p>
+    </a>
+  </div>
+</div>
+
+  <h3 style="margin-top:30px">Why Choose Us?</h3>
+  <ul>
+    <li>Creative framing</li>
+    <li>Professional editing</li>
+    <li>Travel-friendly service</li>
+    <li>Memorable results</li>
+  </ul>
+
+  <div class="actions">
+    <a href="../contact.html">Send Enquiry</a>
+    <a href="tel:+916383814837" class="secondary">Call Now</a>
+    <a href="https://wa.me/916383814837" class="secondary">WhatsApp</a>
+  </div>
+
+</div>
+
+<footer>
+© 2026 Chandru Photography & Net Center | All Rights Reserved
+</footer>
+
+</body>
+</html>

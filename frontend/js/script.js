@@ -1,52 +1,131 @@
-function openLogin() {
-  document.getElementById("loginBox").style.display = "block";
-}
+console.log("Chandru Digital Services - Script loaded");
 
-function closeLogin() {
-  document.getElementById("loginBox").style.display = "none";
-}
+// API Base URL
+const API_BASE = "https://chandru-digital-services.onrender.com";
 
-async function login() {
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
-
-  if (!username || !password) {
-    alert("Please enter username and password");
-    return;
-  }
-
-  try {
-    const response = await fetch("http://localhost:5000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ username, password })
-    });
-
-    const data = await response.json();
-    alert(data.msg);
-
-    if (data.msg === "Login success") {
-      closeLogin();
-      // later: redirect to admin panel
+// ==============================
+// NAVIGATION SCROLL EFFECT
+// ==============================
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar");
+  if (navbar) {
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
     }
-  } catch (error) {
-    alert("Server not reachable");
   }
-}
-async function sendMessage() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const message = document.getElementById("message").value;
+});
 
-  const res = await fetch("http://localhost:5000/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, phone, message })
+// ==============================
+// LIGHTBOX FUNCTIONALITY
+// ==============================
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxBox = document.getElementById("lightbox");
+
+if (lightboxImg && lightboxBox) {
+  document.querySelectorAll(".lightbox-img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightboxBox.style.display = "flex";
+    });
   });
 
-  const data = await res.json();
-  alert(data.msg);
+  lightboxBox.addEventListener("click", () => {
+    lightboxBox.style.display = "none";
+  });
 }
+
+// ==============================
+// FADE-IN ON SCROLL
+// ==============================
+const fadeElements = document.querySelectorAll(".fade-in");
+
+if (fadeElements.length > 0) {
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  fadeElements.forEach(el => fadeObserver.observe(el));
+}
+
+// ==============================
+// SERVICE HISTORY TRACKING
+// ==============================
+document.querySelectorAll(".service-card, .e-service-card").forEach(card => {
+  card.addEventListener("click", async () => {
+    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user") || "null");
+
+    if (!token || !user) return;
+
+    const serviceName = card.querySelector("h3")?.textContent || "Unknown Service";
+
+    try {
+      await fetch(`${API_BASE}/api/user/history`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({ service: serviceName })
+      });
+    } catch (err) {
+      console.log("History tracking failed:", err);
+    }
+  });
+});
+
+// ==============================
+// SMOOTH SCROLL FOR NAV LINKS
+// ==============================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href");
+    if (targetId === "#") return;
+
+    const target = document.querySelector(targetId);
+    if (target) {
+      e.preventDefault();
+      const navHeight = document.querySelector(".navbar")?.offsetHeight || 80;
+      const targetPosition = target.offsetTop - navHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth"
+      });
+    }
+  });
+});
+
+// ==============================
+// AUTH TOKEN VERIFICATION
+// ==============================
+async function verifyToken() {
+  const token = localStorage.getItem("token");
+  if (!token) return false;
+
+  try {
+    const res = await fetch(`${API_BASE}/api/auth/verify`, {
+      headers: { "Authorization": `Bearer ${token}` }
+    });
+
+    if (!res.ok) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      return false;
+    }
+
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
+
+// Verify token on page load
+verifyToken();

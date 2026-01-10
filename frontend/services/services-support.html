@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Support</title>
+  <link rel="stylesheet" href="../css/service.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div id="navbar"></div>
+
+<script>
+fetch("../partials/navbar.html")
+  .then(res => res.text())
+  .then(data => document.getElementById("navbar").innerHTML = data);
+</script>
+
+<section class="hero">
+  <h1>Digital Support</h1>
+  <p>Friendly • Trusted • Professional</p>
+</section>
+
+<div class="container"> 
+
+  <h2>Our Digital Support Services</h2>
+
+  <div class="service-grid">
+    <div class="service-box fade-in">
+        <a href="../contact.html" class="service-link">
+
+      <img src="../images/support/technical.png" alt="Technical Assistance" loading="lazy">
+      <h3>Technical Assistance</h3>
+      <p>Basic computer & mobile help</p>
+      </a>
+    </div>
+
+    <div class="service-box fade-in">
+        <a href="../contact.html" class="service-link">
+
+      <img src="../images/support/form.png" alt="Form Error Fix" loading="lazy">
+      <h3>Form Error Fix</h3>
+      <p>Online application corrections</p>
+      </a>
+    </div>
+
+    <div class="service-box fade-in">
+        <a href="../contact.html" class="service-link">
+
+      <img src="../images/support/account.png" alt="Account Recovery" loading="lazy">
+      <h3>Account Recovery</h3>
+      <p>Email, password & login help</p>
+      </a>
+    </div>
+
+    <div class="service-box fade-in">
+        <a href="../contact.html" class="service-link">
+
+      <img src="../images/support/guidance.png" alt="Online Guidance" loading="lazy">
+      <h3>Online Guidance</h3>
+      <p>Step-by-step digital assistance</p>
+      </a>
+    </div>
+  </div>
+
+  <h3 style="margin-top:30px">Why Choose Us?</h3>
+  <ul>
+    <li>Patient & friendly support</li>
+    <li>Quick problem resolution</li>
+    <li>Trusted local service</li>
+    <li>Affordable charges</li>
+  </ul>
+
+  <div class="actions">
+    <a href="../contact.html">Send Enquiry</a>
+    <a href="tel:+916383814837" class="secondary">Call Now</a>
+    <a href="https://wa.me/916383814837" class="secondary">WhatsApp</a>
+  </div>
+
+</div>
+
+<footer>
+© 2026 Chandru Photography & Net Center | All Rights Reserved
+</footer>
+
+</body>
+</html>

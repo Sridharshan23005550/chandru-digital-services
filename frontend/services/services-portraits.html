@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portraits & Event Photography</title>
+  <link rel="stylesheet" href="../css/service.css">
+</head>
+
+<body>
+<!-- Navbar -->
+<div id="navbar"></div>
+
+<script>
+fetch("../partials/navbar.html")
+  .then(res => res.text())
+  .then(data => document.getElementById("navbar").innerHTML = data);
+</script>
+
+<section class="hero">
+  <h1>Portraits & Event Photography</h1>
+  <p>Professional • Creative • High Quality</p>
+</section>
+<div class="container">
+<h2>Our Photography Services</h2>
+
+<<div class="service-grid">
+
+  <div class="service-box fade-in">
+    <a href="../contact.html" class="service-link">
+      <img
+        src="../images/portraits/portrait.png.jpeg"
+        alt="Studio portrait photography"
+        loading="lazy">
+      <h3>Studio Portraits</h3>
+      <p>Professional studio portraits with lighting and backdrops</p>
+    </a>
+  </div>
+
+  <div class="service-box fade-in">
+    <a href="../contact.html" class="service-link">
+      <img
+        src="../images/portraits/wedding.png.jpeg"
+        alt="Wedding photography service"
+        loading="lazy">
+      <h3>Wedding Photography</h3>
+      <p>Professional wedding photography with full coverage</p>
+    </a>
+  </div>
+
+  <div class="service-box fade-in">
+    <a href="../contact.html" class="service-link">
+      <img
+        src="../images/portraits/event.png.jpeg"
+        alt="Event photography service"
+        loading="lazy">
+      <h3>Event Shoots</h3>
+      <p>Birthday & family events</p>
+    </a>
+  </div>
+
+  <div class="service-box fade-in">
+    <a href="../contact.html" class="service-link">
+      <img
+        src="../images/portraits/album.png.jpeg"
+        alt="Photo album and editing service"
+        loading="lazy">
+      <h3>Albums & Editing</h3>
+      <p>High quality albums & retouching</p>
+    </a>
+  </div>
+
+</div>
+
+
+
+  <h3 style="margin-top:30px">Why Choose Us?</h3>
+  <ul>
+    <li>Experienced photographers</li>
+    <li>High-quality equipment</li>
+    <li>Creative editing</li>
+    <li>Affordable packages</li>
+  </ul>
+
+  <div class="actions">
+    <a href="../contact.html">Send Enquiry</a>
+    <a href="tel:+916383814837" class="secondary">Call Now</a>
+    <a href="https://wa.me/916383814837" class="secondary">WhatsApp</a>
+  </div>
+
+</div>
+
+<footer>
+© 2026 Chandru Photography & Net Center | All Rights Reserved
+</footer>
+
+</body>
+</html>

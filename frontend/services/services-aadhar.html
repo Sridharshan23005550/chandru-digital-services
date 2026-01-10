@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aadhaar & PAN Services</title>
+
+  <!-- IMPORTANT: ../ because file is inside services/ -->
+  <link rel="stylesheet" href="../css/service.css">
+</head>
+
+<body>
+<!-- Navbar -->
+<div id="navbar"></div>
+
+<script>
+fetch("../partials/navbar.html")
+  .then(res => res.text())
+  .then(data => document.getElementById("navbar").innerHTML = data);
+</script>
+
+<section class="hero">
+  <h1>Aadhaar & PAN Services</h1>
+  <p>Quick • Reliable • Secure Assistance</p>
+</section>
+
+<div class="container">
+
+  <h2>Our Services</h2>
+
+  <div class="service-grid">
+    <div class="service-box fade-in">
+        <a href="../contact.html" class="service-link">
+
+      <img src="../images/aadhar/aadhar-update.png" alt="Aadhaar update service" loading="lazy">
+      <h3>Aadhaar Update</h3>
+      <p>Name, address, DOB & mobile update</p>
+      </a>
+    </div>
+
+    <div class="service-box fade-in">
+        <a href="../contact.html" class="service-link">
+
+      <img src="../images/aadhar/pan-apply.png" alt="PAN card application service"
+     loading="lazy">
+      <h3>PAN Apply</h3>
+      <p>New PAN card application</p>
+      </a>
+    </div>
+
+    <div class="service-box fade-in">
+        <a href="../contact.html" class="service-link">
+
+      <img src="../images/aadhar/pan-correction.png" alt="PAN card correction service"
+     loading="lazy">
+      <h3>PAN Correction</h3>
+      <p>Name, DOB & photo correction</p>
+      </a>
+    </div>
+
+    <div class="service-box fade-in">
+        <a href="../contact.html" class="service-link">
+
+      <img src="../images/aadhar/print.png" alt="Aadhaar and PAN print service"
+     loading="lazy">
+      <h3>Print & Download</h3>
+      <p>Aadhaar & PAN print services</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a href="../contact.html">Send Enquiry</a>
+    <a href="tel:+916383814837" class="secondary">Call Now</a>
+    <a href="https://wa.me/916383814837" class="secondary">WhatsApp</a>
+  </div>
+
+</div>
+
+<footer>
+© 2026 Chandru Photography & Net Center | All Rights Reserved
+</footer>
+
+</body>
+</html>

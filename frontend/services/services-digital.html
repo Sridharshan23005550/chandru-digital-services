@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Services</title>
+
+  <!-- IMPORTANT: correct path -->
+  <link rel="stylesheet" href="../css/service.css">
+</head>
+
+<body>
+<!-- Navbar -->
+<div id="navbar"></div>
+
+<script>
+fetch("../partials/navbar.html")
+  .then(res => res.text())
+  .then(data => document.getElementById("navbar").innerHTML = data);
+</script>
+
+<section class="hero">
+  <h1>Digital Services</h1>
+  <p>Fast • Professional • Affordable</p>
+</section>
+
+<div class="container">
+
+  <h2>Our Digital Services</h2>
+
+  <div class="service-grid">
+    <div class="service-box fade-in">
+        <a href="../contact.html" class="service-link">
+
+      <img src="../images/digital/editing.png" alt="Photo Editing" loading="lazy">
+      <h3>Photo Editing</h3>
+      <p>Professional retouching & background removal</p>
+      </a>
+    </div>
+
+    <div class="service-box fade-in">
+        <a href="../contact.html" class="service-link">
+
+      <img src="../images/digital/passport.png" alt="Passport Photo" loading="lazy">
+      <h3>Passport Size Photo</h3>
+      <p>Instant passport & visa photo printing</p>
+      </a>
+    </div>
+
+    <div class="service-box fade-in">
+        <a href="../contact.html" class="service-link">
+
+      <img src="../images/digital/scan.png" alt="Scanning" loading="lazy">
+      <h3>Scanning</h3>
+      <p>Document scanning & digital copy creation</p>
+      </a>
+    </div>
+
+    <div class="service-box fade-in">
+        <a href="../contact.html" class="service-link">
+
+      <img src="../images/digital/print.png" alt="Printing" loading="lazy">
+      <h3>Print Services</h3>
+      <p>Color & black-white printouts</p>
+      </a>
+    </div>
+  </div>
+
+  <h3 style="margin-top:30px">Why Choose Us?</h3>
+  <ul>
+    <li>Quick delivery</li>
+    <li>High-quality output</li>
+    <li>Affordable pricing</li>
+    <li>Customer-friendly service</li>
+  </ul>
+
+  <div class="actions">
+    <a href="../contact.html">Send Enquiry</a>
+    <a href="tel:+916383814837" class="secondary">Call Now</a>
+    <a href="https://wa.me/916383814837" class="secondary">WhatsApp</a>
+  </div>
+
+</div>
+
+<footer>
+© 2026 Chandru Photography & Net Center | All Rights Reserved
+</footer>
+
+</body>
+</html>
