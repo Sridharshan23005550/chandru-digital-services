@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
 
 // Import routes
@@ -11,32 +12,38 @@ const userRoutes = require("./routes/user");
 const app = express();
 
 // CORS configuration for production
-app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "http://127.0.0.1:5500",
-    "http://localhost:5500",
-    "https://chandru-digital-services.netlify.app",
-    "https://chandru-digital-services.vercel.app",
-    "https://sridharshan23005550.github.io"
-  ],
-  credentials: true
-}));
+app.use(cors());
 
 app.use(express.json());
 
-// Root route
-app.get("/", (req, res) => {
+// API Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/contact", contactRoutes);
+app.use("/api/user", userRoutes);
+
+// Root API route
+app.get("/api", (req, res) => {
   res.json({
-    status: "Backend is running",
-    version: "2.0.0",
-    endpoints: {
-      auth: "/api/auth",
-      contact: "/api/contact",
-      user: "/api/user"
-    }
+    status: "Backend operates normally",
+    version: "2.0.0"
   });
 });
+
+// Serve static assets in production
+if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development") {
+  // Set static folder
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+  // Handle SPA routing
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend/dist", "index.html"));
+  });
+} else {
+  // Default route for dev without static files
+  app.get("/", (req, res) => {
+    res.send("API is running...");
+  });
+}
 
 // MongoDB connection
 mongoose
@@ -46,16 +53,6 @@ mongoose
     console.error("❌ MongoDB Connection Error:", err.message);
     process.exit(1);
   });
-
-// Routes
-app.use("/api/auth", authRoutes);
-app.use("/api/contact", contactRoutes);
-app.use("/api/user", userRoutes);
-
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ msg: "Route not found" });
-});
 
 // Error handler
 app.use((err, req, res, next) => {
