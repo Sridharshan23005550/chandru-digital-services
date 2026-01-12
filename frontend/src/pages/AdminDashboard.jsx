@@ -24,7 +24,7 @@ const AdminDashboard = () => {
             const res = await api.get('/contact', {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            setMessages(res.data);
+            setMessages(Array.isArray(res.data) ? res.data : []);
         } catch (error) {
             console.error(error);
             toast.error('Failed to load messages');
@@ -88,7 +88,7 @@ const AdminDashboard = () => {
                     >
                         <MessageSquare size={20} /> Messages
                         <span className="ml-auto bg-primary text-white text-xs px-2 py-0.5 rounded-full">
-                            {messages.length}
+                            {Array.isArray(messages) ? messages.length : 0}
                         </span>
                     </button>
 
@@ -143,7 +143,7 @@ const AdminDashboard = () => {
                                 </div>
                                 <span className="text-white/40 text-sm">Total</span>
                             </div>
-                            <h3 className="text-3xl font-bold text-white mb-1">{messages.length}</h3>
+                            <h3 className="text-3xl font-bold text-white mb-1">{Array.isArray(messages) ? messages.length : 0}</h3>
                             <p className="text-white/40 text-sm">Customer Inquiries</p>
                         </div>
 
@@ -182,7 +182,7 @@ const AdminDashboard = () => {
                         </div>
                     ) : (
                         <div className="space-y-4">
-                            {messages.map((msg) => (
+                            {Array.isArray(messages) && messages.map((msg) => (
                                 <div
                                     key={msg._id}
                                     className="bg-dark-800 border border-white/5 rounded-2xl p-6 hover:border-primary/30 transition-colors group"

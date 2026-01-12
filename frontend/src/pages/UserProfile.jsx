@@ -18,7 +18,7 @@ const UserProfile = () => {
         const fetchHistory = async () => {
             try {
                 const res = await api.get('/user/history');
-                setHistory(res.data);
+                setHistory(Array.isArray(res.data) ? res.data : []);
             } catch (error) {
                 console.error("Failed to fetch history:", error);
                 // toast.error("Could not load history");
@@ -114,7 +114,7 @@ const UserProfile = () => {
                         </div>
                     ) : (
                         <div className="space-y-4">
-                            {history.map((item, index) => (
+                            {Array.isArray(history) && history.map((item, index) => (
                                 <motion.div
                                     key={index}
                                     initial={{ opacity: 0, y: 20 }}
