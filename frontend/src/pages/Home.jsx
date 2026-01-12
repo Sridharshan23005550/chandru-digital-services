@@ -22,17 +22,18 @@ const Home = () => {
         },
         {
             icon: Printer,
-            title: "Digital Services",
-            description: "High-quality printing, scanning, xerox, and document lamination services.",
+            title: "Passport Service",
+            description: "New Passport application & renewal assistance",
             image: "https://images.unsplash.com/photo-1562564055-71e051d33c19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
         }
     ];
 
     const onlineServices = [
-        { icon: "🪪", title: "Aadhaar / PAN", desc: "New application & updates" },
-        { icon: "🎫", title: "Ticket Booking", desc: "Train, bus & flight tickets" },
-        { icon: "🌐", title: "Web Services", desc: "Online applications & forms" },
-        { icon: "💻", title: "Digital Support", desc: "Technical assistance" }
+        { icon: "🏥", title: "Insurance", desc: "Policy renewal & new" },
+        { icon: "🎫", title: "Ticket Booking", desc: "Train (IRCTC), Bus, and Flight ticket reservations" },
+        { icon: "🚙", title: "Fastag", desc: "Recharge & New" },
+        { icon: "💻", title: "Digital Support", desc: "Technical assistance" },
+        { icon: "🛂", title: "Passport", desc: "Application & Renewal" }
     ];
 
     const galleryImages = [

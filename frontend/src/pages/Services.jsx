@@ -21,8 +21,8 @@ const Services = () => {
         },
         {
             icon: Printer,
-            title: "Digital Services",
-            description: "High-quality printing, scanning, xerox, and document lamination services.",
+            title: "Passport Service",
+            description: "New Passport application & renewal assistance",
             image: "https://images.unsplash.com/photo-1562564055-71e051d33c19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
         },
         {
@@ -34,14 +34,14 @@ const Services = () => {
     ];
 
     const onlineServices = [
-        { icon: "🪪", title: "Aadhaar Services", desc: "New enrollment, updates, address change & printing" },
+        { icon: "🏥", title: "Insurance", desc: "Vehicle and health insurance policy renewal" },
         { icon: "🎫", title: "Ticket Booking", desc: "Train (IRCTC), Bus, and Flight ticket reservations" },
-        { icon: "🌐", title: "PAN Card", desc: "New PAN application and correction services" },
         { icon: "📝", title: "Online Applications", desc: "Job applications, college admissions, and exam forms" },
         { icon: "💰", title: "Bill Payments", desc: "Electricity, Recharge, and Utility bill payments" },
         { icon: "📄", title: "Resume Building", desc: "Professional CV and resume design services" },
         { icon: "📜", title: "Patta / Chitta", desc: "Land record printouts and viewing services" },
-        { icon: "🏥", title: "Insurance", desc: "Vehicle and health insurance policy renewal" }
+        { icon: "🚙", title: "Fastag", desc: "New Fastag application & recharge services" },
+        { icon: "🛂", title: "Passport Service", desc: "New Passport application & renewal assistance" }
     ];
 
     return (

@@ -40,9 +40,9 @@ const Contact = () => {
     };
 
     const contactInfo = [
-        { icon: MapPin, title: "Location", desc: "Main Road, Example City, Tamil Nadu" },
-        { icon: Phone, title: "Phone", desc: "+91 63838 14837" },
-        { icon: Mail, title: "Email", desc: "contact@chandrudigital.com" },
+        { icon: MapPin, title: "Location", desc: "Main Road, Kuruvikulam, Tenkasi - 627754" },
+        { icon: Phone, title: "Phone", desc: "7200559119" },
+        { icon: Mail, title: "Email", desc: "CHANDRUPHOTOGRAPHY2020@GMAIL.COM" },
         { icon: Clock, title: "Working Hours", desc: "Mon - Sat: 9:00 AM - 8:00 PM" },
     ];
 
@@ -55,9 +55,22 @@ const Contact = () => {
                     <div className="text-center mb-16">
                         <span className="text-primary text-sm font-bold tracking-widest uppercase mb-2 block">Get in Touch</span>
                         <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Contact Us</h1>
-                        <p className="text-white/60 max-w-2xl mx-auto text-lg">
+                        <p className="text-white/60 max-w-2xl mx-auto text-lg mb-12">
                             Have questions or need to book a session? We'd love to hear from you.
                         </p>
+
+                        {/* Quick Service Buttons - Static Version */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                            {["INSURANCE", "TICKET BOOKING", "FASTAG", "PASSPORT SERVICE"].map((item) => (
+                                <button
+                                    key={item}
+                                    onClick={() => setFormData(prev => ({ ...prev, service: item }))}
+                                    className="px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-semibold hover:bg-primary hover:border-primary hover:text-white transition-all text-sm shadow-lg shadow-black/20"
+                                >
+                                    {item}
+                                </button>
+                            ))}
+                        </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-12 items-start">

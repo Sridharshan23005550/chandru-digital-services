@@ -1,4 +1,5 @@
 import { Camera, MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
     return (
@@ -6,12 +7,9 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-6 text-center">
 
                 <div className="mb-10 flex flex-col items-center">
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg shadow-primary/20"
-                        style={{ background: 'var(--gradient-primary)' }}>
-                        <Camera className="text-white w-8 h-8" />
-                    </div>
-                    <h2 className="text-2xl font-bold text-white mb-2">Chandru Digital</h2>
-                    <p className="text-white/50 max-w-sm">Professional photography, videography, and digital services for all your needs.</p>
+                    <img src={logo} alt="Chandru Photography" className="w-20 h-20 object-contain mb-4 rounded-xl bg-white/5" />
+                    <h2 className="text-2xl font-bold text-white mb-2">CHANDRU PHOTOGRAPHY</h2>
+                    <p className="text-white/50 max-w-sm">From Memories to Documents - Everything We Made Simple.</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 border-b border-white/5 pb-16">
@@ -21,7 +19,7 @@ const Footer = () => {
                             <MapPin size={20} />
                         </div>
                         <h4 className="text-white font-semibold">Visit Us</h4>
-                        <p className="text-white/50 text-sm">Main Road, Example City, Tamil Nadu</p>
+                        <p className="text-white/50 text-sm">Main Road, Kuruvikulam, Tenkasi - 627754</p>
                     </div>
 
                     <div className="flex flex-col items-center gap-3">
@@ -30,7 +28,7 @@ const Footer = () => {
                             <Phone size={20} />
                         </div>
                         <h4 className="text-white font-semibold">Call Us</h4>
-                        <p className="text-white/50 text-sm">+91 63838 14837</p>
+                        <p className="text-white/50 text-sm">7200559119</p>
                     </div>
 
                     <div className="flex flex-col items-center gap-3">
@@ -39,7 +37,8 @@ const Footer = () => {
                             <Mail size={20} />
                         </div>
                         <h4 className="text-white font-semibold">Email Us</h4>
-                        <p className="text-white/50 text-sm">contact@chandrudigital.com</p>
+                        <p className="text-white/50 text-sm">CHANDRUPHOTOGRAPHY2020@GMAIL.COM</p>
+                        <a href="https://whatsapp.com/channel/0029VbBo6HXAu3aHcR9ryK39" target="_blank" rel="noopener noreferrer" className="text-primary text-xs hover:underline mt-1">Join WhatsApp Channel</a>
                     </div>
                 </div>
 

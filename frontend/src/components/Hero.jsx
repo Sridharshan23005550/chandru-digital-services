@@ -19,7 +19,7 @@ const Hero = () => {
                 >
                     <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
                         Professional <span className="gradient-text">Photography</span> & <br />
-                        Digital Services
+                        Passport Services
                     </h1>
                 </motion.div>
 
@@ -29,7 +29,7 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="text-lg md:text-xl text-white/60 mb-10 max-w-2xl mx-auto"
                 >
-                    Capturing moments, creating memories. Your one-stop destination for portraits, events, printing, and online services.
+                    FROM MEMORIES TO DOCUMENTS - ONE PLACE TOTAL SATISFACTION - EVERYTHING WE MADE SIMPLE
                 </motion.p>
 
                 <motion.div

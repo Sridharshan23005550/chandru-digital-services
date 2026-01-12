@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://chandru-digital-services.onrender.com/api',
+    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
     headers: {
         'Content-Type': 'application/json'
     }
@@ -10,16 +10,16 @@ const api = axios.create({
 // Add a request interceptor to attach the token
 api.interceptors.request.use(
     (config) => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
+        // Don't overwrite Authorization if it's already set (e.g. by AdminDashboard)
+        if (!config.headers.Authorization) {
+            const token = localStorage.getItem('token');
+            if (token) {
+                config.headers.Authorization = `Bearer ${token}`;
+            }
         }
         return config;
     },
     (error) => Promise.reject(error)
 );
-
-// Admin instance for admin routes if needed (or just use same api with different token logic)
-// For simplicity, we manage tokens via localStorage keys and Context
 
 export default api;

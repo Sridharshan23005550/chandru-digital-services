@@ -78,7 +78,7 @@ export const AuthProvider = ({ children }) => {
     const adminLogin = async (username, password) => {
         try {
             // Use specific endpoint for admin
-            const res = await axios.post('https://chandru-digital-services.onrender.com/api/auth/admin-login', { username, password });
+            const res = await api.post('/auth/admin-login', { username, password });
             const { token, admin } = res.data;
 
             localStorage.setItem('adminToken', token);
@@ -115,4 +115,4 @@ export const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     );
 };
-import axios from 'axios';
+
