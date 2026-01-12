@@ -31,23 +31,31 @@ app.get("/api", (req, res) => {
 });
 
 // Serve static assets in production
-const frontendPath = path.join(__dirname, "../frontend/dist");
-const indexPath = path.resolve(frontendPath, "index.html");
+const frontendDistPath = path.join(__dirname, "../frontend/dist");
+const frontendBuildPath = path.join(__dirname, "../frontend/build");
 
-if (fs.existsSync(indexPath)) {
-  console.log("📁 Serving static frontend from:", frontendPath);
-  app.use(express.static(frontendPath));
+let indexPath = null;
 
+if (fs.existsSync(path.join(frontendDistPath, "index.html"))) {
+  indexPath = path.join(frontendDistPath, "index.html");
+  app.use(express.static(frontendDistPath));
+} else if (fs.existsSync(path.join(frontendBuildPath, "index.html"))) {
+  indexPath = path.join(frontendBuildPath, "index.html");
+  app.use(express.static(frontendBuildPath));
+}
+
+if (indexPath) {
+  console.log("📁 Serving static frontend from:", path.dirname(indexPath));
   app.get("*", (req, res) => {
     res.sendFile(indexPath);
   });
 } else {
-  console.warn("⚠️ Frontend build or index.html not found. Path checked:", indexPath);
+  console.warn("⚠️ Frontend build (dist or build) not found.");
   app.get("*", (req, res) => {
     res.status(404).send(`
       <h1>Frontend Not Built</h1>
-      <p>The frontend build was not found. Please ensure the build command is set correctly on Render.</p>
-      <p>Current check path: ${indexPath}</p>
+      <p>The frontend build was not found in either 'frontend/dist' or 'frontend/build'.</p>
+      <p>Please ensure your build command is running correctly on Render.</p>
     `);
   });
 }
