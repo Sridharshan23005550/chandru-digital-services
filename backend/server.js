@@ -87,9 +87,13 @@ app.use((err, req, res, next) => {
   res.status(500).json({ msg: "Internal server error" });
 });
 
-// Start server
-const PORT = process.env.PORT || 5000;
+// Export app for serverless deployment
+module.exports = app;
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
+// Start server if not required as a module
+if (require.main === module) {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
+}
