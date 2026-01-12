@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     return (
@@ -54,12 +55,12 @@ const Hero = () => {
                     >
                         Explore Services
                     </a>
-                    <a
-                        href="#contact"
+                    <Link
+                        to="/contact"
                         className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 transition-all duration-300"
                     >
                         Get in Touch
-                    </a>
+                    </Link>
                 </motion.div>
             </div>
 

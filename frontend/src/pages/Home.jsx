@@ -141,9 +141,17 @@ const Home = () => {
                     </div>
 
                     <div className="text-center mt-12">
-                        <button className="px-8 py-3 rounded-full border border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-all">
+                        <Link to="/services" className="px-8 py-3 rounded-full border border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-all inline-block">
                             View All Works
-                        </button>
+                        </Link>
+                    </div>
+                    <div className="text-center mt-8">
+                        <Link
+                            to="/contact"
+                            className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 transition-all duration-300"
+                        >
+                            Get in Touch
+                        </Link>
                     </div>
                 </div>
             </section>
