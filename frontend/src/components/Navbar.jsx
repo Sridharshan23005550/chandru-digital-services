@@ -43,7 +43,7 @@ const Navbar = () => {
                 <Link to="/" className="flex items-center gap-3 group">
                     <img src={logo} alt="Chandru Photography" className="w-16 h-16 object-contain rounded-lg bg-white/10" />
                     <div>
-                        <h1 className="text-xl font-bold text-white leading-tight">CHANDRU PHOTOGRAPHY</h1>
+                        <h1 className="text-xl font-bold text-white leading-tight">CHANDRU PHOTOGRAPHY & ONLINE E SERVICES</h1>
                         <p className="text-xs text-white/60">One Place Total Satisfaction</p>
                     </div>
                 </Link>

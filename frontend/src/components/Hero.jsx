@@ -17,9 +17,9 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                        Professional <span className="gradient-text">Photography</span> & <br />
-                        Passport Services
+                    <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                        CHANDRU <span className="gradient-text">PHOTOGRAPHY</span> & <br />
+                        ONLINE E SERVICES
                     </h1>
                 </motion.div>
 
@@ -27,10 +27,19 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-lg md:text-xl text-white/60 mb-10 max-w-2xl mx-auto"
+                    className="text-lg md:text-xl text-white/60 mb-4 max-w-2xl mx-auto uppercase tracking-wide"
                 >
-                    FROM MEMORIES TO DOCUMENTS - ONE PLACE TOTAL SATISFACTION - EVERYTHING WE MADE SIMPLE
+                    TO FRAME THE WORLD, EXPLORE BEYOND US.
                 </motion.p>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="text-primary font-bold mb-10 tracking-widest"
+                >
+                    TIME - 9.00 AM TO 8PM
+                </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

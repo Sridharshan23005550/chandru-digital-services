@@ -54,7 +54,7 @@ const Home = () => {
             <section id="services" className="py-24 px-6 relative">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="text-primary text-sm font-bold tracking-widest uppercase mb-2 block">What We Offer</span>
+                        <span className="text-primary text-sm font-bold tracking-widest uppercase mb-2 block">PHOTOGRAPHY - TRAVEL - ONLINE SOLUTIONS</span>
                         <h2 className="text-4xl font-bold text-white mb-4">Our Premium Services</h2>
                         <p className="text-white/60 max-w-2xl mx-auto">
                             We provide top-notch photography and digital solutions tailored to your specific needs.
