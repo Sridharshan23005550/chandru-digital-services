@@ -31,31 +31,43 @@ app.get("/api", (req, res) => {
 });
 
 // Serve static assets in production
-const frontendDistPath = path.join(__dirname, "../frontend/dist");
-const frontendBuildPath = path.join(__dirname, "../frontend/build");
+const frontendPaths = [
+  path.join(__dirname, "../frontend/dist"),
+  path.join(__dirname, "../frontend/build"),
+  path.join(__dirname, "../../frontend/dist"),
+  path.join(__dirname, "../../frontend/build")
+];
 
 let indexPath = null;
+let staticPath = null;
 
-if (fs.existsSync(path.join(frontendDistPath, "index.html"))) {
-  indexPath = path.join(frontendDistPath, "index.html");
-  app.use(express.static(frontendDistPath));
-} else if (fs.existsSync(path.join(frontendBuildPath, "index.html"))) {
-  indexPath = path.join(frontendBuildPath, "index.html");
-  app.use(express.static(frontendBuildPath));
+for (const p of frontendPaths) {
+  const possibleIndex = path.join(p, "index.html");
+  if (fs.existsSync(possibleIndex)) {
+    indexPath = possibleIndex;
+    staticPath = p;
+    break;
+  }
 }
 
-if (indexPath) {
-  console.log("📁 Serving static frontend from:", path.dirname(indexPath));
+if (indexPath && staticPath) {
+  console.log("📁 Serving static frontend from:", staticPath);
+  app.use(express.static(staticPath));
+
   app.get("*", (req, res) => {
     res.sendFile(indexPath);
   });
 } else {
-  console.warn("⚠️ Frontend build (dist or build) not found.");
+  console.warn("⚠️ Frontend build not found in common locations.");
   app.get("*", (req, res) => {
     res.status(404).send(`
-      <h1>Frontend Not Built</h1>
-      <p>The frontend build was not found in either 'frontend/dist' or 'frontend/build'.</p>
-      <p>Please ensure your build command is running correctly on Render.</p>
+      <div style="font-family: sans-serif; padding: 40px; text-align: center;">
+        <h1 style="color: #e94560;">Frontend Not Found</h1>
+        <p>The server could not find the bundled frontend files.</p>
+        <p><b>Paths checked:</b></p>
+        <pre style="background: #f4f4f4; padding: 10px; display: inline-block; text-align: left;">${frontendPaths.join('\n')}</pre>
+        <p>Please ensure you have run the build command correctly.</p>
+      </div>
     `);
   });
 }
