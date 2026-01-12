@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
+const fs = require("fs");
 require("dotenv").config();
 
 // Import routes
@@ -30,18 +31,24 @@ app.get("/api", (req, res) => {
 });
 
 // Serve static assets in production
-if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development") {
-  // Set static folder
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+const frontendPath = path.join(__dirname, "../frontend/dist");
+const indexPath = path.resolve(frontendPath, "index.html");
 
-  // Handle SPA routing
+if (fs.existsSync(indexPath)) {
+  console.log("📁 Serving static frontend from:", frontendPath);
+  app.use(express.static(frontendPath));
+
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../frontend/dist", "index.html"));
+    res.sendFile(indexPath);
   });
 } else {
-  // Default route for dev without static files
-  app.get("/", (req, res) => {
-    res.send("API is running...");
+  console.warn("⚠️ Frontend build or index.html not found. Path checked:", indexPath);
+  app.get("*", (req, res) => {
+    res.status(404).send(`
+      <h1>Frontend Not Built</h1>
+      <p>The frontend build was not found. Please ensure the build command is set correctly on Render.</p>
+      <p>Current check path: ${indexPath}</p>
+    `);
   });
 }
 

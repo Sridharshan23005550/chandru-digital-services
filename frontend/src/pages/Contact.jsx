@@ -33,7 +33,8 @@ const Contact = () => {
             toast.success('Message sent successfully!');
             setFormData({ name: '', email: '', phone: '', message: '', service: '' });
         } catch (error) {
-            toast.error('Failed to send message. Please try again.');
+            console.error(error);
+            toast.error(error.response?.data?.msg || 'Failed to send message. Please try again.');
         } finally {
             setLoading(false);
         }

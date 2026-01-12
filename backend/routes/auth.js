@@ -137,6 +137,7 @@ router.post("/admin-login", async (req, res) => {
         username: "admin",
         password: hashedPassword
       });
+      console.log("👤 Creating default admin user: admin");
       await admin.save();
     }
 
