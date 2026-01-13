@@ -28,19 +28,15 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-lg md:text-xl text-white/60 mb-4 max-w-2xl mx-auto uppercase tracking-wide"
+                    className="text-gray-300 mt-6 text-lg md:text-xl font-semibold tracking-wider"
                 >
-                    TO FRAME THE WORLD, EXPLORE BEYOND US.
+                    TO FRAME THE WORLD, EXPLORE BEYOND US
+
+                   <br />   PHOTOGRAPHY - TRAVEL - ONLINE SOLUTIONS
+
                 </motion.p>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    className="text-primary font-bold mb-10 tracking-widest"
-                >
-                    TIME - 9.00 AM TO 8PM
-                </motion.div>
+                
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
