@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://chandru-digital-services.onrender.com' || 'http://localhost:5000',
         changeOrigin: true,
       }
     }

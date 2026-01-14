@@ -19,8 +19,8 @@ const Hero = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-                        CHANDRU <span className="gradient-text">PHOTOGRAPHY</span> & <br />
-                        ONLINE E SERVICES
+                        CHANDRU <span className="gradient-text">PHOTOGRAPHY</span> 
+                        
                     </h1>
                 </motion.div>
 

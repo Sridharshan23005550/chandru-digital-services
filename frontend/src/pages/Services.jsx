@@ -17,7 +17,7 @@ const Services = () => {
             icon: Map,
             title: "Landscape & Travel",
             description: "Stunning outdoor photography capturing the beauty of nature and travel destinations.",
-            image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+            image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
         },
         {
             icon: Printer,
