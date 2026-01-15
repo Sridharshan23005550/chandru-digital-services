@@ -24,17 +24,21 @@ const Hero = () => {
                     </h1>
                 </motion.div>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-gray-300 mt-6 text-lg md:text-xl font-semibold tracking-wider"
-                >
-                    TO FRAME THE WORLD, EXPLORE BEYOND US
+                <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className="mt-6 flex flex-col gap-3"
+>
+  <p className="text-gray-300 text-lg md:text-xl font-semibold tracking-wider leading-relaxed">
+    TO FRAME THE WORLD, EXPLORE BEYOND US
+  </p>
 
-                   <br />   PHOTOGRAPHY - TRAVEL - ONLINE SOLUTIONS
+  <p className="text-gray-400 text-base md:text-lg tracking-wider leading-relaxed">
+    PHOTOGRAPHY - TRAVEL - ONLINE SOLUTIONS
+  </p>
+</motion.div>
 
-                </motion.p>
 
                 
 
@@ -42,7 +46,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="flex flex-wrap justify-center gap-4"
+                    className="flex justify-center gap-8 mt-8"
                 >
                     <a
                         href="#services"
