@@ -5,7 +5,15 @@ import ServiceCard from '../components/ServiceCard';
 import { Camera, Map, Printer, Ticket, Globe, Monitor } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
+import img1 from "../assets/gallery/img1.jpeg";
+import img2 from "../assets/gallery/img2.jpeg";
+import img3 from "../assets/gallery/img3.jpeg";
+import img4 from "../assets/gallery/img4.jpeg";
+import img5 from "../assets/gallery/img5.jpeg";
+import img6 from "../assets/gallery/img6.jpeg";
+import img7 from "../assets/gallery/img7.jpeg";
+import img8 from "../assets/gallery/img8.jpeg";
+import img9 from "../assets/gallery/img9.jpeg";
 const Home = () => {
     const services = [
         {
@@ -37,12 +45,7 @@ const Home = () => {
     ];
 
     const galleryImages = [
-  "https://images.unsplash.com/photo-1518770660439-4636190af475",
-  "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
-  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-  "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f",
-  "https://images.unsplash.com/photo-1516726817505-f5ed825624d8",
-  "https://images.unsplash.com/photo-1492724441997-5dc865305da7"
+  img1,img2,img3,img4,img5,img6,img7,img8,img9
 ];
 
 
