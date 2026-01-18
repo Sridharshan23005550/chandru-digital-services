@@ -30,8 +30,8 @@ const Home = () => {
         },
         {
             icon: Printer,
-            title: "Passport Service",
-            description: "New Passport application & renewal assistance",
+            title: "Digital Support",
+            description: "All Digital services are available",
             image: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&w=1200&q=80"
         }
     ];
@@ -40,7 +40,7 @@ const Home = () => {
         { icon: "🏥", title: "Insurance", desc: "Policy renewal & new" },
         { icon: "🎫", title: "Ticket Booking", desc: "Train (IRCTC), Bus, and Flight ticket reservations" },
         { icon: "🚙", title: "Fastag", desc: "Recharge & New" },
-        { icon: "💻", title: "Digital Support", desc: "Technical assistance" },
+        { icon: "💻", title: "INCOME TAX", desc: "Technical assistance" },
         { icon: "🛂", title: "Passport", desc: "Application & Renewal" }
     ];
 

@@ -10,7 +10,7 @@ const Footer = () => {
                     <img src={logo} alt="Chandru Photography" className="w-20 h-20 object-contain mb-4 rounded-xl bg-white/5" />
                     <h2 className="text-2xl font-bold text-white mb-2 uppercase">CHANDRU PHOTOGRAPHY </h2>
                     <p className="text-white/50 max-w-sm">FROM MEMORIES TO DOCUMENTS 
-                    <br/>- ONE PLACE TOTAL SATISFACTION - EVERYTHING WE MADE SIMPLE</p>
+                    <br/> ONE PLACE TOTAL SATISFACTION  EVERYTHING WE MADE SIMPLE</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 border-b border-white/5 pb-16">

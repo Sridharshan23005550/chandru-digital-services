@@ -21,8 +21,8 @@ const Services = () => {
         },
         {
             icon: Printer,
-            title: "Passport Service",
-            description: "New Passport application & renewal assistance",
+            title: "Digital Support",
+            description: "All Digital services are available",
             image: "https://images.unsplash.com/photo-1562564055-71e051d33c19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
         },
         {
