@@ -14,6 +14,8 @@ import img6 from "../assets/gallery/img6.jpeg";
 import img7 from "../assets/gallery/img7.jpeg";
 import img8 from "../assets/gallery/img8.jpeg";
 import img9 from "../assets/gallery/img9.jpeg";
+import landscapeImg from "../assets/landscape.jpeg";
+import digitalImg from "../assets/digital.jpeg";
 const Home = () => {
     const services = [
         {
@@ -26,13 +28,13 @@ const Home = () => {
             icon: Map,
             title: "Landscape & Travel",
             description: "Stunning outdoor photography capturing the beauty of nature and travel destinations.",
-            image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+            image: landscapeImg
         },
         {
             icon: Printer,
             title: "Digital Support",
             description: "All Digital services are available",
-            image: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&w=1200&q=80"
+            image: digitalImg
         }
     ];
 
