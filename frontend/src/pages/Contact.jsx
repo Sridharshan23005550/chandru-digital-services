@@ -88,7 +88,7 @@ const Contact = () => {
                                         type="text"
                                         value={formData.name}
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                        className="w-full bg-dark-900 border border-white/10 rounded-xl py-3.5 px-4 text-white focus:border-primary focus:outline-none transition-colors"
+                                        className="w-full bg-dark-900 border border-white/10 rounded-xl py-3.5 px-4 text-white placeholder:text-white/20 focus:border-primary focus:outline-none transition-colors"
                                         placeholder="John Doe"
                                         required
                                     />
@@ -101,7 +101,7 @@ const Contact = () => {
                                             type="email"
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className="w-full bg-dark-900 border border-white/10 rounded-xl py-3.5 px-4 text-white focus:border-primary focus:outline-none transition-colors"
+                                            className="w-full bg-dark-900 border border-white/10 rounded-xl py-3.5 px-4 text-white placeholder:text-white/20 focus:border-primary focus:outline-none transition-colors"
                                             placeholder="john@example.com"
                                             required
                                         />
@@ -112,7 +112,7 @@ const Contact = () => {
                                             type="tel"
                                             value={formData.phone}
                                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                            className="w-full bg-dark-900 border border-white/10 rounded-xl py-3.5 px-4 text-white focus:border-primary focus:outline-none transition-colors"
+                                            className="w-full bg-dark-900 border border-white/10 rounded-xl py-3.5 px-4 text-white placeholder:text-white/20 focus:border-primary focus:outline-none transition-colors"
                                             placeholder="+91 98765 43210"
                                         />
                                     </div>
@@ -137,7 +137,7 @@ const Contact = () => {
                                     <textarea
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                        className="w-full bg-dark-900 border border-white/10 rounded-xl py-3.5 px-4 text-white focus:border-primary focus:outline-none transition-colors h-40 resize-none"
+                                        className="w-full bg-dark-900 border border-white/10 rounded-xl py-3.5 px-4 text-white placeholder:text-white/20 focus:border-primary focus:outline-none transition-colors h-40 resize-none"
                                         placeholder="How can we help you?"
                                     />
                                 </div>
