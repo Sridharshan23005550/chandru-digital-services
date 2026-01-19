@@ -172,7 +172,7 @@ const Contact = () => {
                                         </div>
                                         <div>
                                             <h3 className="text-lg font-bold text-white mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
-                                            <p className="text-white/60 leading-relaxed">{item.desc}</p>
+                                            <p className="text-white/60 leading-relaxed break-words">{item.desc}</p>
                                         </div>
                                     </div>
                                 ))}
