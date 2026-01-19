@@ -69,11 +69,11 @@ const AdminDashboard = () => {
                 <div className="p-6 border-b border-white/5">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center font-bold text-white text-xl">
-                            CD
+                            CP
                         </div>
                         <div>
                             <h2 className="text-white font-bold">Admin Panel</h2>
-                            <p className="text-white/40 text-xs">Chandru Digital</p>
+                            <p className="text-white/40 text-xs">CHANDRU PHOTOGRAPHY</p>
                         </div>
                     </div>
                 </div>
