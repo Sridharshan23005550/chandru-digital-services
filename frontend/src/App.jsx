@@ -9,10 +9,12 @@ import Contact from './pages/Contact';
 import Services from './pages/Services';
 import UserProfile from './pages/UserProfile';
 import ProtectedRoute from './components/ProtectedRoute';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <AuthProvider>
         <div className="antialiased">
           <Routes>
