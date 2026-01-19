@@ -24,7 +24,7 @@ const Services = () => {
         {
             icon: Printer,
             title: "Digital Support",
-            description: "All Digital services are available",
+            description: "All digital services under one roofOnline forms,tickets,scanning and affordable service",
             image: digitalImg
         },
         {
