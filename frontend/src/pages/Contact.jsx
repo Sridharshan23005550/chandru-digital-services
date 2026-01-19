@@ -170,9 +170,9 @@ const Contact = () => {
                                         <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/20">
                                             <item.icon className="text-white w-7 h-7" />
                                         </div>
-                                        <div>
+                                        <div className="min-w-0">
                                             <h3 className="text-lg font-bold text-white mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
-                                            <p className="text-white/60 leading-relaxed break-words">{item.desc}</p>
+                                            <p className="text-white/60 leading-relaxed break-all">{item.desc}</p>
                                         </div>
                                     </div>
                                 ))}
